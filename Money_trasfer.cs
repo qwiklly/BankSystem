@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp4
@@ -28,10 +20,6 @@ namespace WindowsFormsApp4
             
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -39,9 +27,9 @@ namespace WindowsFormsApp4
             try
             {
                 var id = Int32.Parse(textBox1_id.Text);
-                int SumRub = Int32.Parse(textBox2.Text);
+                int SumRub = Int32.Parse(textBox2?.Text);
 
-                if (id < 10 && id >= 0 )
+                if (id < 10 && id >= 0 && SumRub < primdb.usersArray[id])
                 {
                     primdb.usersArray[id] += SumRub;
                     primdb.UpdateUsersArray(primdb.usersArray);

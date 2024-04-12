@@ -44,9 +44,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft JhengHei", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(293, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(432, 50);
+            this.label1.Size = new System.Drawing.Size(358, 50);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Пополнение баланса";
+            this.label1.Text = "Перевод средств";
             // 
             // label2
             // 
@@ -68,7 +68,6 @@
             this.label3.Size = new System.Drawing.Size(253, 58);
             this.label3.TabIndex = 2;
             this.label3.Text = "Введите количество рублей";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button1
             // 

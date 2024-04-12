@@ -46,10 +46,7 @@ namespace WindowsFormsApp4
 
             snm();
         }*/
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void Form3_Load(object sender, EventArgs e)
         {

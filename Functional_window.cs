@@ -32,15 +32,7 @@ namespace WindowsFormsApp4
             this.userId = id;
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -52,51 +44,118 @@ namespace WindowsFormsApp4
             pictureBox1.BorderStyle = BorderStyle.None;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label16_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-           
-        }
-
-        private void panel3_Click(object sender, EventArgs e)
-        {
-
-            Money_trasfer frm_login1 = new Money_trasfer(userId);
-            this.Hide();
-            frm_login1.ShowDialog();
-            Close();
-        }
-
-        private void label25_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        //Снятие средств со счета
         private void panel2_Click(object sender, EventArgs e)
         {
-            
+            Money_takeoff takeoff = new Money_takeoff(userId);
+            this.Hide();
+            takeoff.ShowDialog();
+            Close();
+        }
+        private void panel2_MouseEnter(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            panel.BackColor = Color.LightBlue; // изменяем цвет панели при наведении на неё курсора
+        }
+
+        private void panel2_MouseLeave(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            panel.BackColor = Color.White; // возвращаем исходный цвет панели при уходе курсора с неё
+        }
+        //Пополнение счета
+        private void panel3_Click(object sender, EventArgs e)
+        {
+            Money_Get  money_Get= new Money_Get(userId);
+            this.Hide();
+            money_Get.ShowDialog();
+            Close();
+
+        }
+        private void panel3_MouseEnter_1(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            panel.BackColor = Color.LightBlue; // изменяем цвет панели при наведении на неё курсора
+        }
+
+        private void panel3_MouseLeave_1(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            panel.BackColor = Color.White; // возвращаем исходный цвет панели при уходе курсора с неё
+        }
+
+        private void panel6_Click(object sender, EventArgs e)
+        {
+            Money_trasfer Money_trasfer = new Money_trasfer(userId);
+            this.Hide();
+            Money_trasfer.ShowDialog();
+            Close();
+        }
+        private void panel6_MouseEnter(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            panel.BackColor = Color.LightBlue; // изменяем цвет панели при наведении на неё курсора
+        }
+
+        private void panel6_MouseLeave(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            panel.BackColor = Color.White; // возвращаем исходный цвет панели при уходе курсора с неё
         }
 
         private void panel7_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2(userId);
+            Convertation Convertation = new Convertation(userId);
             this.Hide();
-            form2.ShowDialog();
+            Convertation.ShowDialog();
             Close();
+        }
+        private void panel7_MouseEnter(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            panel.BackColor = Color.LightBlue; // изменяем цвет панели при наведении на неё курсора
+        }
+
+        private void panel7_MouseLeave(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            panel.BackColor = Color.White; // возвращаем исходный цвет панели при уходе курсора с неё
+        }
+
+       
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            this.Hide();
+            form.ShowDialog();
+            Close();
+        }
+
+
+
+        private void panel4_MouseEnter(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            panel.BackColor = Color.LightBlue; // изменяем цвет панели при наведении на неё курсора
+        }
+
+        private void panel4_MouseLeave(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            panel.BackColor = Color.White; // возвращаем исходный цвет панели при уходе курсора с неё
+        }
+
+        private void panel5_MouseEnter(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            panel.BackColor = Color.LightBlue; // изменяем цвет панели при наведении на неё курсора
+        }
+
+        private void panel5_MouseLeave(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            panel.BackColor = Color.White; // возвращаем исходный цвет панели при уходе курсора с неё
         }
     }
 }

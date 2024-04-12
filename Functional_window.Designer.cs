@@ -103,7 +103,6 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 16);
             this.label3.TabIndex = 5;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // panel1
             // 
@@ -175,7 +174,8 @@
             this.panel2.Size = new System.Drawing.Size(676, 335);
             this.panel2.TabIndex = 7;
             this.panel2.Click += new System.EventHandler(this.panel2_Click);
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.panel2.MouseEnter += new System.EventHandler(this.panel2_MouseEnter);
+            this.panel2.MouseLeave += new System.EventHandler(this.panel2_MouseLeave);
             // 
             // label17
             // 
@@ -230,7 +230,9 @@
             this.panel3.Size = new System.Drawing.Size(619, 335);
             this.panel3.TabIndex = 8;
             this.panel3.Click += new System.EventHandler(this.panel3_Click);
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            
+            this.panel3.MouseEnter += new System.EventHandler(this.panel3_MouseEnter_1);
+            this.panel3.MouseLeave += new System.EventHandler(this.panel3_MouseLeave_1);
             // 
             // label16
             // 
@@ -242,7 +244,6 @@
             this.label16.Size = new System.Drawing.Size(121, 25);
             this.label16.TabIndex = 8;
             this.label16.Text = "Рубли (Rub)";
-            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // label7
             // 
@@ -274,6 +275,9 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(772, 331);
             this.panel4.TabIndex = 9;
+            
+            this.panel4.MouseEnter += new System.EventHandler(this.panel4_MouseEnter);
+            this.panel4.MouseLeave += new System.EventHandler(this.panel4_MouseLeave);
             // 
             // label20
             // 
@@ -315,6 +319,8 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(523, 331);
             this.panel5.TabIndex = 10;
+            this.panel5.MouseEnter += new System.EventHandler(this.panel5_MouseEnter);
+            this.panel5.MouseLeave += new System.EventHandler(this.panel5_MouseLeave);
             // 
             // label21
             // 
@@ -381,6 +387,9 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(440, 197);
             this.panel6.TabIndex = 10;
+            this.panel6.Click += new System.EventHandler(this.panel6_Click);
+            this.panel6.MouseEnter += new System.EventHandler(this.panel6_MouseEnter);
+            this.panel6.MouseLeave += new System.EventHandler(this.panel6_MouseLeave);
             // 
             // label19
             // 
@@ -422,6 +431,7 @@
             this.button1.TabIndex = 13;
             this.button1.Text = "Выход";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel7
             // 
@@ -436,6 +446,8 @@
             this.panel7.Size = new System.Drawing.Size(857, 197);
             this.panel7.TabIndex = 14;
             this.panel7.Click += new System.EventHandler(this.panel7_Click);
+            this.panel7.MouseEnter += new System.EventHandler(this.panel7_MouseEnter);
+            this.panel7.MouseLeave += new System.EventHandler(this.panel7_MouseLeave);
             // 
             // label25
             // 
@@ -447,7 +459,6 @@
             this.label25.Size = new System.Drawing.Size(391, 25);
             this.label25.TabIndex = 10;
             this.label25.Text = "Гонконский доллар (HKD) ⇔ Рубли (RUB)";
-            this.label25.Click += new System.EventHandler(this.label25_Click);
             // 
             // label26
             // 
@@ -472,7 +483,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1902, 1033);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.button1);

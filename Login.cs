@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
+
 using System.Windows.Forms;
-using System.Xml.Linq;
+
 
 namespace WindowsFormsApp4
 {
@@ -16,42 +11,19 @@ namespace WindowsFormsApp4
     public partial class Login : Form
     {
 
-        
+        readonly DataBase database = new DataBase();
+
         public Login()
         {
             InitializeComponent();
         }
-/*        public void BankSum()
-        {
-
-            // Парсин кура валют с сайте ЦБ РФ:
-            WebClient client = new WebClient();
-            var xml = client.DownloadString("https://www.cbr-xml-daily.ru/daily.xml");
-            XDocument xdoc = XDocument.Parse(xml);
-            var el = xdoc.Element("ValCurs").Elements("Valute");
-            string dollar = el.Where(x => x.Attribute("ID").Value == "R01235").Select(x => x.Element("Value").Value).FirstOrDefault();
-            string eur = el.Where(x => x.Attribute("ID").Value == "R01239").Select(x => x.Element("Value").Value).FirstOrDefault();
-
-            kursval_dollar.Text = (dollar);
-            kursval_euro.Text = (eur);
-
-
-            decimal rub = Convert.ToDecimal(lbsum_end.Text);
-            decimal doll = Convert.ToDecimal(kursval_dollar.Text);
-            decimal euro = Convert.ToDecimal(kursval_euro.Text);
-            lb_sum_dollar.Text = (rub * doll).ToString();
-            lb_sum_euro.Text = (rub * euro).ToString();
-
-
-
-            snm();
-        }*/
+        
         
 
         private void Form3_Load(object sender, EventArgs e)
         {
             
-}
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -60,7 +32,18 @@ namespace WindowsFormsApp4
                 var id = Int32.Parse(textBox1_id.Text);
                 int current_user = Int32.Parse(textBox1_id.Text);
 
-                if (id < 10 && id >= 0)
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                DataTable table = new DataTable();
+
+                string querystring = $"select id_user from users where id_user = '{id}' ";
+
+                SqlCommand command = new SqlCommand(querystring, database.GetConnection());
+
+                adapter.SelectCommand = command;
+                adapter.Fill(table);
+
+                if (table.Rows.Count == 1)
+
                 {
                     MessageBox.Show("Вы успешно вошли", "Успешно!");
                     Functional_window frm_login = new Functional_window(id);

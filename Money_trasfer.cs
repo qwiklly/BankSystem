@@ -1,18 +1,23 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp4
 {
     public partial class Money_trasfer : Form
     {
+        DataBase database = new DataBase();
+        
+
+        private int id;
         
 
         public Money_trasfer(int userId)
         {
             InitializeComponent();
-            primdb.usersArray = primdb.LoadUsersArray();
-            /*nt[] usersArray = primdb.usersArray;*/
-            label5.Text = primdb.usersArray[userId].ToString();
+            database.cheackMoney(label5, userId);
+
+            this.id = userId;
         }
 
         private void Money_trasfer_Load(object sender, EventArgs e)
@@ -24,28 +29,41 @@ namespace WindowsFormsApp4
         private void button1_Click(object sender, EventArgs e)
         {
             
+        Money_takeoff mt = new Money_takeoff(id);
             try
             {
-                var id = Int32.Parse(textBox1_id.Text);
+                int id1 = Int32.Parse(textBox1_id?.Text);
+                Money_Get mg = new Money_Get(id1);
+
                 int SumRub = Int32.Parse(textBox2?.Text);
 
-                if (id < 10 && id >= 0 && SumRub < primdb.usersArray[id])
+                if (SumRub < Int32.Parse(label5.Text))
                 {
-                    primdb.usersArray[id] += SumRub;
-                    primdb.UpdateUsersArray(primdb.usersArray);
-                    MessageBox.Show("Вы успешно пополнили счет", "Успешно!");
-                    Functional_window frm_login = new Functional_window(id);
+                    mg.money_Get(SumRub, id1);
+                    mt.money_takeoff(SumRub, id);
+
+                    MessageBox.Show($"Вы успешно перевели деньги на счет {id1} ", "Успешно!");
+                    Functional_window newFunctionalWindow = new Functional_window(id);
                     this.Hide();
-                    frm_login.ShowDialog();
-                    Close();
+                    newFunctionalWindow.ShowDialog();
+                    this.Close();
 
                 }
                 else
                 {
-                    MessageBox.Show("что-то пошло не так!, проверьте правильность введенного id ");
+                    MessageBox.Show("На вашем счету недостаточно средств ", "FAIL!"); 
                 }
             }
-            catch { MessageBox.Show("что-то пошло не так!, проверьте правильность введенного id "); }
+            catch { MessageBox.Show("Что-то пошло не так! Проверьте правильность введенной суммы"); }
+
+            }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Functional_window newFunctionalWindow = new Functional_window(id);
+            this.Hide();
+            newFunctionalWindow.ShowDialog();
+            this.Close();
         }
     }
     

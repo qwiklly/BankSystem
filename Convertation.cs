@@ -1,33 +1,50 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace WindowsFormsApp4
 {
     public partial class Convertation : Form
     {
-        private string ROUBLES_PER_DOLLAR;
+        
+        
+        private int id;
+        DataBase database = new DataBase();
         public Convertation(int userId)
         {
-            primdb.usersArray = primdb.LoadUsersArray();
             InitializeComponent();
-            WebClient client = new WebClient();
-            var xml = client.DownloadString("https://www.cbr-xml-daily.ru/daily.xml");
-            XDocument xdoc = XDocument.Parse(xml);
-            var el = xdoc.Element("ValCurs").Elements("Valute");
-            string dollar = el.Where(x => x.Attribute("ID").Value == "R01200").Select(x => x.Element("Value").Value).FirstOrDefault();
-            label5.Text = primdb.usersArray[userId].ToString();
 
-            label6.Text = dollar + "рублей";
-            this.ROUBLES_PER_DOLLAR = dollar;
+            
+            
+            database.cheackMoney(label5, userId);
+            database.cheackMoney_HKD(label29, userId);
+            database.ApiValute(label6);
+
+            this.id = userId;
+        }
+        private void Get_HKD(int dollarsHKD, int id) 
+        {
+            string querystring = $"UPDATE users SET user_HKD = user_HKD + {dollarsHKD} WHERE id_user = {id}";
+
+            SqlCommand command = new SqlCommand(querystring, database.GetConnection());
+            database.openConnection();
+            command.ExecuteNonQuery();
+
+
+            database.closeConnection();
+
+        }
+        private void takeoff_HKD(int dollarsHKD, int id)
+        {
+            string querystring = $"UPDATE users SET user_HKD = user_HKD - {dollarsHKD} WHERE id_user = {id}";
+
+            SqlCommand command = new SqlCommand(querystring, database.GetConnection());
+            database.openConnection();
+            command.ExecuteNonQuery();
+
+
+            database.closeConnection();
+
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -37,8 +54,104 @@ namespace WindowsFormsApp4
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double roubles = Double.Parse(ROUBLES_PER_DOLLAR) * Int32.Parse(dollars.Text);
-            MessageBox.Show($"Сумма обмена при введенных {dollars.Text} долларах США составляет {roubles} рублей.");
+
+            Money_takeoff mt = new Money_takeoff(id);
+            try
+            {
+                double roubles_Convert = Double.Parse(label6.Text) * Double.Parse(dollars.Text);
+                if (roubles_Convert < Int32.Parse(label5.Text))
+                {
+                    int dollarsHKD = Int32.Parse(dollars.Text);
+
+
+
+                    Get_HKD(dollarsHKD, id);
+
+
+                    mt.money_takeoff((int)roubles_Convert, id);
+
+                    if (dollarsHKD == 1)
+                    {
+                        MessageBox.Show($"Сумма обмена при введенном {dollars.Text} долларе Гонконга составляет {roubles_Convert} рублей.");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Сумма обмена при введенных {dollars.Text} долларах Гонконга составляет {roubles_Convert} рублей.");
+                    }
+                    MessageBox.Show("Вы перевели валюту", "Успешно!");
+                    Functional_window fw = new Functional_window(id);
+                    this.Hide();
+                    fw.ShowDialog();
+                    Close();
+                }
+                else { MessageBox.Show("Недостаточно средств (RUB)", "Успешно!"); }
+            }
+            catch { MessageBox.Show("проверьте правильность ввода", "Успешно!"); }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double res = Double.Parse(label6.Text) * Double.Parse(dollars.Text);
+                label8.Text = res.ToString();
+            }
+            catch { MessageBox.Show("Введите правильное колличество долларов", "Успешно!"); }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Money_Get mg = new Money_Get(id);
+            try
+            {
+
+                double roubles_Convert = Double.Parse(label6.Text) * Double.Parse(dollar2.Text);
+                
+                int dollarsHKD = Int32.Parse(dollar2.Text);
+                if (dollarsHKD < Int32.Parse(label29.Text)) {
+
+
+                    takeoff_HKD(dollarsHKD, id);
+
+
+                    mg.money_Get((int)roubles_Convert, id);
+                    if (dollarsHKD == 1)
+                    {
+                        MessageBox.Show($"Вы получите при введенном {dollars.Text} долларе Гонконга  {roubles_Convert} рублей.");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Вы получите при введенных {dollar2.Text} долларах Гонконга {roubles_Convert} рублей.");
+                    }
+
+
+                    MessageBox.Show("Вы перевели валюту", "Успешно!");
+                    Functional_window fw = new Functional_window(id);
+                    this.Hide();
+                    fw.ShowDialog();
+                    Close();
+                }
+                else { MessageBox.Show("Недостаточно средств (HKD)", "Успешно!"); }
+            }
+            catch { MessageBox.Show("Введите правильное колличество долларов", "Успешно!"); }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double res = Double.Parse(label6.Text) * Double.Parse(dollar2.Text);
+                label10.Text = res.ToString();
+            }
+            catch { MessageBox.Show("Введите правильное колличество долларов", "Успешно!"); }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Functional_window fw = new Functional_window(id);
+            this.Hide();
+            fw.ShowDialog();
+            Close();
         }
     }
 }

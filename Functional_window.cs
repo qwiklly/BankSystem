@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,30 +13,28 @@ namespace WindowsFormsApp4
 {
     public partial class Functional_window : Form
     {
+
+
+        
         private int userId;
+        readonly DataBase database = new DataBase();
 
-
-
-
-
-
-
-
-
+        
         public Functional_window(int id)
         {
-            
             InitializeComponent();
-            primdb.usersArray = primdb.LoadUsersArray();
-            label24.Text = primdb.usersArray[id].ToString();
-            label23.Text = "Id пользователя: " + id.ToString();
+            
+            database.cheackMoney(label24, id);
+            database.cheackMoney_HKD(label29, id);
+
+            label28.Text = id.ToString();
             this.userId = id;
         }
 
         
 
         private void Form2_Load(object sender, EventArgs e)
-        {
+        {       
             this.WindowState = FormWindowState.Maximized;
         }
 
@@ -69,7 +68,7 @@ namespace WindowsFormsApp4
             Money_Get  money_Get= new Money_Get(userId);
             this.Hide();
             money_Get.ShowDialog();
-            Close();
+            
 
         }
         private void panel3_MouseEnter_1(object sender, EventArgs e)
@@ -94,13 +93,13 @@ namespace WindowsFormsApp4
         private void panel6_MouseEnter(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
-            panel.BackColor = Color.LightBlue; // изменяем цвет панели при наведении на неё курсора
+            panel.BackColor = Color.LightBlue; 
         }
 
         private void panel6_MouseLeave(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
-            panel.BackColor = Color.White; // возвращаем исходный цвет панели при уходе курсора с неё
+            panel.BackColor = Color.White; 
         }
 
         private void panel7_Click(object sender, EventArgs e)
@@ -113,13 +112,13 @@ namespace WindowsFormsApp4
         private void panel7_MouseEnter(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
-            panel.BackColor = Color.LightBlue; // изменяем цвет панели при наведении на неё курсора
+            panel.BackColor = Color.LightBlue; 
         }
 
         private void panel7_MouseLeave(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
-            panel.BackColor = Color.White; // возвращаем исходный цвет панели при уходе курсора с неё
+            panel.BackColor = Color.White; 
         }
 
        
@@ -137,25 +136,30 @@ namespace WindowsFormsApp4
         private void panel4_MouseEnter(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
-            panel.BackColor = Color.LightBlue; // изменяем цвет панели при наведении на неё курсора
+            panel.BackColor = Color.LightBlue;
         }
 
         private void panel4_MouseLeave(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
-            panel.BackColor = Color.White; // возвращаем исходный цвет панели при уходе курсора с неё
+            panel.BackColor = Color.White; 
         }
 
         private void panel5_MouseEnter(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
-            panel.BackColor = Color.LightBlue; // изменяем цвет панели при наведении на неё курсора
+            panel.BackColor = Color.LightBlue; 
         }
 
         private void panel5_MouseLeave(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
-            panel.BackColor = Color.White; // возвращаем исходный цвет панели при уходе курсора с неё
+            panel.BackColor = Color.White; 
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

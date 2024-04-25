@@ -17,7 +17,7 @@ namespace WindowsFormsApp4
 
         public void openConnection()
         {
-            if (sqlConnection.State == System.Data.ConnectionState.Closed)
+            if (sqlConnection.State == ConnectionState.Closed)
             {
                 sqlConnection.Open();
             }
@@ -25,7 +25,7 @@ namespace WindowsFormsApp4
 
         public void closeConnection()
         {
-            if (sqlConnection.State == System.Data.ConnectionState.Open)
+            if (sqlConnection.State == ConnectionState.Open)
             {
                 sqlConnection.Close();
             }
@@ -72,16 +72,56 @@ namespace WindowsFormsApp4
 
 
         }
-        public void ApiValute(Label value_dollar)
+        public void cheackMoney_credit(Label labelUserMoney, int id)
         {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable table = new DataTable();
 
+            string querystring = $"select credit from users ";
+
+            SqlCommand command = new SqlCommand(querystring, GetConnection());
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+
+
+            labelUserMoney.Text = table.Rows[id]["credit"].ToString();
+
+
+        }
+        public void cheackMoney_deposit(Label labelUserMoney, int id) 
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataTable table = new DataTable();
+
+            string querystring = $"select deposit from users ";
+
+            SqlCommand command = new SqlCommand(querystring, GetConnection());
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+
+
+            labelUserMoney.Text = table.Rows[id]["deposit"].ToString();
+
+
+        }
+        public async Task ApiValute(Label value_dollar) //Api valute 
+        {
+            await Task.Run(() =>
+            {
+                WebClient client = new WebClient();
+                var xml = client.DownloadString("https://www.cbr-xml-daily.ru/daily.xml");
+                XDocument xdoc = XDocument.Parse(xml);
+                var el = xdoc.Element("ValCurs").Elements("Valute");
+                string dollar = el.Where(x => x.Attribute("ID").Value == "R01200").Select(x => x.Element("Value").Value).FirstOrDefault();
+                value_dollar.Text = dollar;
+
+            });
             
-            WebClient client = new WebClient();
-            var xml = client.DownloadString("https://www.cbr-xml-daily.ru/daily.xml");
-            XDocument xdoc = XDocument.Parse(xml);
-            var el = xdoc.Element("ValCurs").Elements("Valute");
-            string dollar = el.Where(x => x.Attribute("ID").Value == "R01200").Select(x => x.Element("Value").Value).FirstOrDefault();
-            value_dollar.Text = dollar ;
+            
         }
 
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp4
@@ -15,7 +14,7 @@ namespace WindowsFormsApp4
         public Money_trasfer(int userId)
         {
             InitializeComponent();
-            database.cheackMoney(label5, userId);
+            database.CheackMoney(label5, userId);
 
             this.id = userId;
         }
@@ -34,10 +33,14 @@ namespace WindowsFormsApp4
             {
                 int id1 = Int32.Parse(textBox1_id?.Text);
                 Money_Get mg = new Money_Get(id1);
-
                 int SumRub = Int32.Parse(textBox2?.Text);
+                if (id1 == id) 
+                {
+                    MessageBox.Show($"Вы не можете перевести средства себе {id1} ", "Неудача!");
+                }
+                
 
-                if (SumRub < Int32.Parse(label5.Text))
+                else if (SumRub < Int32.Parse(label5.Text))
                 {
                     mg.money_Get(SumRub, id1);
                     mt.money_takeoff(SumRub, id);

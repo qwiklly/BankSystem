@@ -12,7 +12,7 @@ namespace WindowsFormsApp4
         public Money_takeoff(int userId)
         {
             InitializeComponent();
-            database.cheackMoney(label5, userId);
+            database.CheackMoney(label5, userId);
 
             this.id = userId;
 
@@ -23,9 +23,9 @@ namespace WindowsFormsApp4
             string querystring = $"UPDATE users SET user_RUB = user_RUB - {SumRub} WHERE id_user = {id}";
 
             SqlCommand command = new SqlCommand(querystring, database.GetConnection());
-            database.openConnection();
+            database.OpenConnection();
             command.ExecuteNonQuery();
-            database.closeConnection();
+            database.CloseConnection();
         }
         
 

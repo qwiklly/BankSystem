@@ -13,25 +13,28 @@ namespace WindowsFormsApp4
         public Convertation(int userId)
         {
             InitializeComponent();
-
-            
-            
-            database.cheackMoney(label5, userId);
-            database.cheackMoney_HKD(label29, userId);
-            database.ApiValute(label6);
-
+            async void initialize()
+            {
+                
+                database.CheackMoney(label5, userId);
+                database.CheackMoney_HKD(label29, userId);
+                await database.ApiValute(label6);
+                
+            }
+            initialize();
             this.id = userId;
         }
+        
         private void Get_HKD(int dollarsHKD, int id) 
         {
             string querystring = $"UPDATE users SET user_HKD = user_HKD + {dollarsHKD} WHERE id_user = {id}";
 
             SqlCommand command = new SqlCommand(querystring, database.GetConnection());
-            database.openConnection();
+            database.OpenConnection();
             command.ExecuteNonQuery();
 
 
-            database.closeConnection();
+            database.CloseConnection();
 
         }
         private void takeoff_HKD(int dollarsHKD, int id)
@@ -39,11 +42,11 @@ namespace WindowsFormsApp4
             string querystring = $"UPDATE users SET user_HKD = user_HKD - {dollarsHKD} WHERE id_user = {id}";
 
             SqlCommand command = new SqlCommand(querystring, database.GetConnection());
-            database.openConnection();
+            database.OpenConnection();
             command.ExecuteNonQuery();
 
 
-            database.closeConnection();
+            database.CloseConnection();
 
         }
 
@@ -59,7 +62,8 @@ namespace WindowsFormsApp4
             try
             {
                 double roubles_Convert = Double.Parse(label6.Text) * Double.Parse(dollars.Text);
-                if (roubles_Convert < Int32.Parse(label5.Text))
+                 
+                if (roubles_Convert < Int32.Parse(label5.Text) )
                 {
                     int dollarsHKD = Int32.Parse(dollars.Text);
 

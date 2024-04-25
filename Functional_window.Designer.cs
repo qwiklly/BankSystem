@@ -33,6 +33,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -66,9 +69,6 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -126,6 +126,35 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(498, 486);
             this.panel1.TabIndex = 6;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label29.Location = new System.Drawing.Point(303, 188);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(80, 35);
+            this.label29.TabIndex = 14;
+            this.label29.Text = "many";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label30.Location = new System.Drawing.Point(20, 188);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(267, 29);
+            this.label30.TabIndex = 13;
+            this.label30.Text = "Гоконгских долларов: ";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(17, 206);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(0, 16);
+            this.label31.TabIndex = 12;
             // 
             // label28
             // 
@@ -248,7 +277,6 @@
             this.panel3.Size = new System.Drawing.Size(619, 335);
             this.panel3.TabIndex = 8;
             this.panel3.Click += new System.EventHandler(this.panel3_Click);
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             this.panel3.MouseEnter += new System.EventHandler(this.panel3_MouseEnter_1);
             this.panel3.MouseLeave += new System.EventHandler(this.panel3_MouseLeave_1);
             // 
@@ -293,6 +321,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(772, 331);
             this.panel4.TabIndex = 9;
+            this.panel4.Click += new System.EventHandler(this.panel4_Click);
             this.panel4.MouseEnter += new System.EventHandler(this.panel4_MouseEnter);
             this.panel4.MouseLeave += new System.EventHandler(this.panel4_MouseLeave);
             // 
@@ -336,6 +365,7 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(523, 331);
             this.panel5.TabIndex = 10;
+            this.panel5.Click += new System.EventHandler(this.panel5_Click);
             this.panel5.MouseEnter += new System.EventHandler(this.panel5_MouseEnter);
             this.panel5.MouseLeave += new System.EventHandler(this.panel5_MouseLeave);
             // 
@@ -494,35 +524,6 @@
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(0, 16);
             this.label27.TabIndex = 5;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label29.Location = new System.Drawing.Point(303, 188);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(80, 35);
-            this.label29.TabIndex = 14;
-            this.label29.Text = "many";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label30.Location = new System.Drawing.Point(20, 188);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(267, 29);
-            this.label30.TabIndex = 13;
-            this.label30.Text = "Гоконгских долларов: ";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(17, 206);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(0, 16);
-            this.label31.TabIndex = 12;
             // 
             // Functional_window
             // 

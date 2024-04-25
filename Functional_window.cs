@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp4
@@ -24,8 +17,8 @@ namespace WindowsFormsApp4
         {
             InitializeComponent();
             
-            database.cheackMoney(label24, id);
-            database.cheackMoney_HKD(label29, id);
+            database.CheackMoney(label24, id);
+            database.CheackMoney_HKD(label29, id);
 
             label28.Text = id.ToString();
             this.userId = id;
@@ -82,7 +75,42 @@ namespace WindowsFormsApp4
             Panel panel = (Panel)sender;
             panel.BackColor = Color.White; // возвращаем исходный цвет панели при уходе курсора с неё
         }
+        private void panel4_Click(object sender, EventArgs e)
+        {
+            Credit credit = new Credit(userId);
+            this.Hide();
+            credit.ShowDialog();
+        }
+        private void panel4_MouseEnter(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            panel.BackColor = Color.LightBlue;
+        }
 
+        private void panel4_MouseLeave(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            panel.BackColor = Color.White;
+        }
+
+        private void panel5_Click(object sender, EventArgs e)
+        {
+            Deposit deposit = new Deposit(userId, database);
+            this.Hide();
+            deposit.ShowDialog();
+            
+        }
+        private void panel5_MouseEnter(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            panel.BackColor = Color.LightBlue;
+        }
+
+        private void panel5_MouseLeave(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)sender;
+            panel.BackColor = Color.White;
+        }
         private void panel6_Click(object sender, EventArgs e)
         {
             Money_trasfer Money_trasfer = new Money_trasfer(userId);
@@ -131,35 +159,6 @@ namespace WindowsFormsApp4
             Close();
         }
 
-
-
-        private void panel4_MouseEnter(object sender, EventArgs e)
-        {
-            Panel panel = (Panel)sender;
-            panel.BackColor = Color.LightBlue;
-        }
-
-        private void panel4_MouseLeave(object sender, EventArgs e)
-        {
-            Panel panel = (Panel)sender;
-            panel.BackColor = Color.White; 
-        }
-
-        private void panel5_MouseEnter(object sender, EventArgs e)
-        {
-            Panel panel = (Panel)sender;
-            panel.BackColor = Color.LightBlue; 
-        }
-
-        private void panel5_MouseLeave(object sender, EventArgs e)
-        {
-            Panel panel = (Panel)sender;
-            panel.BackColor = Color.White; 
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
     }
 }

@@ -25,12 +25,12 @@ namespace WindowsFormsApp4
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             try
             {
                 var id = Int32.Parse(textBox1_id.Text);
-                int current_user = Int32.Parse(textBox1_id.Text);
+                
 
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 DataTable table = new DataTable();

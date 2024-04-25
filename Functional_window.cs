@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using WindowsFormsApp4.Models;
 
 namespace WindowsFormsApp4
 {
@@ -9,16 +10,17 @@ namespace WindowsFormsApp4
 
 
         
-        private int userId;
+        readonly int userId;
         readonly DataBase database = new DataBase();
+        readonly Money_operations money = new Money_operations();
 
         
         public Functional_window(int id)
         {
             InitializeComponent();
             
-            database.CheackMoney(label24, id);
-            database.CheackMoney_HKD(label29, id);
+            money.CheackMoney(label24, id);
+            money.CheackMoney_HKD(label29, id);
 
             label28.Text = id.ToString();
             this.userId = id;
@@ -31,119 +33,116 @@ namespace WindowsFormsApp4
             this.WindowState = FormWindowState.Maximized;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            pictureBox1.BorderStyle = BorderStyle.None;
-        }
+
 
         //Снятие средств со счета
-        private void panel2_Click(object sender, EventArgs e)
+        private void Panel2_Click(object sender, EventArgs e)
         {
             Money_takeoff takeoff = new Money_takeoff(userId);
             this.Hide();
             takeoff.ShowDialog();
             Close();
         }
-        private void panel2_MouseEnter(object sender, EventArgs e)
+        private void Panel2_MouseEnter(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
             panel.BackColor = Color.LightBlue; // изменяем цвет панели при наведении на неё курсора
         }
 
-        private void panel2_MouseLeave(object sender, EventArgs e)
+        private void Panel2_MouseLeave(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
             panel.BackColor = Color.White; // возвращаем исходный цвет панели при уходе курсора с неё
         }
         //Пополнение счета
-        private void panel3_Click(object sender, EventArgs e)
+        private void Panel3_Click(object sender, EventArgs e)
         {
-            Money_Get  money_Get= new Money_Get(userId);
+            Money_Get  money_Get = new Money_Get(userId);
             this.Hide();
             money_Get.ShowDialog();
             
 
         }
-        private void panel3_MouseEnter_1(object sender, EventArgs e)
+        private void Panel3_MouseEnter_1(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
             panel.BackColor = Color.LightBlue; // изменяем цвет панели при наведении на неё курсора
         }
 
-        private void panel3_MouseLeave_1(object sender, EventArgs e)
+        private void Panel3_MouseLeave_1(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
             panel.BackColor = Color.White; // возвращаем исходный цвет панели при уходе курсора с неё
         }
-        private void panel4_Click(object sender, EventArgs e)
+        private void Panel4_Click(object sender, EventArgs e)
         {
-            Credit credit = new Credit(userId);
+            Credit credit = new Credit(userId, database);
             this.Hide();
             credit.ShowDialog();
         }
-        private void panel4_MouseEnter(object sender, EventArgs e)
+        private void Panel4_MouseEnter(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
             panel.BackColor = Color.LightBlue;
         }
 
-        private void panel4_MouseLeave(object sender, EventArgs e)
+        private void Panel4_MouseLeave(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
             panel.BackColor = Color.White;
         }
 
-        private void panel5_Click(object sender, EventArgs e)
+        private void Panel5_Click(object sender, EventArgs e)
         {
             Deposit deposit = new Deposit(userId, database);
             this.Hide();
             deposit.ShowDialog();
             
         }
-        private void panel5_MouseEnter(object sender, EventArgs e)
+        private void Panel5_MouseEnter(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
             panel.BackColor = Color.LightBlue;
         }
 
-        private void panel5_MouseLeave(object sender, EventArgs e)
+        private void Panel5_MouseLeave(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
             panel.BackColor = Color.White;
         }
-        private void panel6_Click(object sender, EventArgs e)
+        private void Panel6_Click(object sender, EventArgs e)
         {
             Money_trasfer Money_trasfer = new Money_trasfer(userId);
             this.Hide();
             Money_trasfer.ShowDialog();
             Close();
         }
-        private void panel6_MouseEnter(object sender, EventArgs e)
+        private void Panel6_MouseEnter(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
             panel.BackColor = Color.LightBlue; 
         }
 
-        private void panel6_MouseLeave(object sender, EventArgs e)
+        private void Panel6_MouseLeave(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
             panel.BackColor = Color.White; 
         }
 
-        private void panel7_Click(object sender, EventArgs e)
+        private void Panel7_Click(object sender, EventArgs e)
         {
             Convertation Convertation = new Convertation(userId);
             this.Hide();
             Convertation.ShowDialog();
             Close();
         }
-        private void panel7_MouseEnter(object sender, EventArgs e)
+        private void Panel7_MouseEnter(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
             panel.BackColor = Color.LightBlue; 
         }
 
-        private void panel7_MouseLeave(object sender, EventArgs e)
+        private void Panel7_MouseLeave(object sender, EventArgs e)
         {
             Panel panel = (Panel)sender;
             panel.BackColor = Color.White; 
@@ -151,7 +150,7 @@ namespace WindowsFormsApp4
 
        
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Exit_Click(object sender, EventArgs e)
         {
             Form1 form = new Form1();
             this.Hide();

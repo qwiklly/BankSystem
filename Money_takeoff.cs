@@ -1,31 +1,26 @@
 ﻿using System;
-using System.Data.SqlClient;
 using System.Windows.Forms;
+using WindowsFormsApp4.Models;
 
 namespace WindowsFormsApp4
 {
     public partial class Money_takeoff : Form
     {
-        private int id;
+        readonly int id;
 
-        DataBase database = new DataBase();
+        readonly DataBase database = new DataBase();
+        readonly Money_operations money = new Money_operations();
         public Money_takeoff(int userId)
         {
             InitializeComponent();
-            database.CheackMoney(label5, userId);
+            money.CheackMoney(label5, userId);
 
             this.id = userId;
 
         }
-        public void money_takeoff(int SumRub, int id)
+        public void Money_Takeoff(int SumRub, int id)
         {
-            
-            string querystring = $"UPDATE users SET user_RUB = user_RUB - {SumRub} WHERE id_user = {id}";
-
-            SqlCommand command = new SqlCommand(querystring, database.GetConnection());
-            database.OpenConnection();
-            command.ExecuteNonQuery();
-            database.CloseConnection();
+            database.Dbrequest($"UPDATE users SET user_RUB = user_RUB - {SumRub} WHERE id_user = {id}");
         }
         
 
@@ -34,7 +29,7 @@ namespace WindowsFormsApp4
            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             
             try
@@ -43,7 +38,7 @@ namespace WindowsFormsApp4
 
                 if (SumRub < Int32.Parse(label5.Text))
                 {
-                    money_takeoff(SumRub, id);
+                    Money_Takeoff(SumRub, id);
                     MessageBox.Show("Вы сняли деньги со своего счета", "Успешно!");
                     Functional_window newFunctionalWindow = new Functional_window(id);
                     this.Hide();
@@ -60,12 +55,7 @@ namespace WindowsFormsApp4
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             Functional_window newFunctionalWindow = new Functional_window(id);
             this.Hide();

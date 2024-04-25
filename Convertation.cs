@@ -1,24 +1,27 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Security.Policy;
 using System.Windows.Forms;
+using WindowsFormsApp4.Models;
 
 namespace WindowsFormsApp4
 {
     public partial class Convertation : Form
     {
-        
-        
-        private int id;
-        DataBase database = new DataBase();
+
+        readonly APIs api = new APIs();
+        readonly private int id;
+        readonly DataBase database = new DataBase();
+        readonly Money_operations money = new Money_operations();
         public Convertation(int userId)
         {
             InitializeComponent();
             async void initialize()
             {
-                
-                database.CheackMoney(label5, userId);
-                database.CheackMoney_HKD(label29, userId);
-                await database.ApiValute(label6);
+
+                money.CheackMoney(label5, userId);
+                money.CheackMoney_HKD(label29, userId);
+                await api.ApiValute(label6);
                 
             }
             initialize();
@@ -27,27 +30,12 @@ namespace WindowsFormsApp4
         
         private void Get_HKD(int dollarsHKD, int id) 
         {
-            string querystring = $"UPDATE users SET user_HKD = user_HKD + {dollarsHKD} WHERE id_user = {id}";
-
-            SqlCommand command = new SqlCommand(querystring, database.GetConnection());
-            database.OpenConnection();
-            command.ExecuteNonQuery();
-
-
-            database.CloseConnection();
+            database.Dbrequest($"UPDATE users SET user_HKD = user_HKD + {dollarsHKD} WHERE id_user = {id}");
 
         }
-        private void takeoff_HKD(int dollarsHKD, int id)
+        private void Takeoff_HKD(int dollarsHKD, int id)
         {
-            string querystring = $"UPDATE users SET user_HKD = user_HKD - {dollarsHKD} WHERE id_user = {id}";
-
-            SqlCommand command = new SqlCommand(querystring, database.GetConnection());
-            database.OpenConnection();
-            command.ExecuteNonQuery();
-
-
-            database.CloseConnection();
-
+            database.Dbrequest($"UPDATE users SET user_HKD = user_HKD - {dollarsHKD} WHERE id_user = {id}");
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -55,7 +43,7 @@ namespace WindowsFormsApp4
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Continue_Get_Click(object sender, EventArgs e)
         {
 
             Money_takeoff mt = new Money_takeoff(id);
@@ -72,7 +60,7 @@ namespace WindowsFormsApp4
                     Get_HKD(dollarsHKD, id);
 
 
-                    mt.money_takeoff((int)roubles_Convert, id);
+                    mt.Money_Takeoff((int)roubles_Convert, id);
 
                     if (dollarsHKD == 1)
                     {
@@ -93,7 +81,7 @@ namespace WindowsFormsApp4
             catch { MessageBox.Show("проверьте правильность ввода", "Успешно!"); }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             try
             {
@@ -103,7 +91,7 @@ namespace WindowsFormsApp4
             catch { MessageBox.Show("Введите правильное колличество долларов", "Успешно!"); }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Button5_Click(object sender, EventArgs e)
         {
             Money_Get mg = new Money_Get(id);
             try
@@ -115,10 +103,10 @@ namespace WindowsFormsApp4
                 if (dollarsHKD < Int32.Parse(label29.Text)) {
 
 
-                    takeoff_HKD(dollarsHKD, id);
+                    Takeoff_HKD(dollarsHKD, id);
 
 
-                    mg.money_Get((int)roubles_Convert, id);
+                    mg.Money_get((int)roubles_Convert, id);
                     if (dollarsHKD == 1)
                     {
                         MessageBox.Show($"Вы получите при введенном {dollars.Text} долларе Гонконга  {roubles_Convert} рублей.");
@@ -140,7 +128,7 @@ namespace WindowsFormsApp4
             catch { MessageBox.Show("Введите правильное колличество долларов", "Успешно!"); }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Button4_Click(object sender, EventArgs e)
         {
             try
             {
@@ -150,7 +138,7 @@ namespace WindowsFormsApp4
             catch { MessageBox.Show("Введите правильное колличество долларов", "Успешно!"); }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             Functional_window fw = new Functional_window(id);
             this.Hide();

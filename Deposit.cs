@@ -3,29 +3,31 @@ using System.Data.SqlClient;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp4.Models;
 
 
 namespace WindowsFormsApp4
 {
     public partial class Deposit : Form
     {
-        private int id;
-        int percent = 4;
-        private DateTime depositStartTime;
-
-        DataBase database = new DataBase();
+        readonly int id;
+        readonly int percent = 4;
+        readonly DateTime depositStartTime;
+        readonly DataBase database = new DataBase();
+        readonly Money_operations money = new Money_operations();
 
         internal Deposit(int userId, IDatabase db)
         {
             InitializeComponent();
             this.database = (DataBase)db;
-            database.CheackMoney(label5, userId);
+            money.CheackMoney(label5, userId);
             label6.Text = percent + " %";
-            database.CheackMoney_deposit(label8, userId);
+            money.CheackMoney_deposit(label8, userId);
             this.id = userId;
             Get_money_fromdb(Int32.Parse(label8.Text));
             this.depositStartTime = DateTime.Now; // Set the deposit start time
         }
+
         public async void Get_money_fromdb(int startingSum)
         {
             await Task.Run(() =>
@@ -34,34 +36,24 @@ namespace WindowsFormsApp4
                 {
                     Thread.Sleep(60000); // Update every minute
                     double currentSum = startingSum * (1 + (percent / 100.0) * (DateTime.Now - depositStartTime).TotalHours);
-                    money_GetDeposit((int)currentSum, id);
+                    Money_GetDeposit((int)currentSum, id);
 
                     
                 }
             });
         }
-        public void money_GetDeposit(int SumRub, int id)
+        public void Money_GetDeposit(int SumRub, int id)
         {
-            string querystring = $"UPDATE users SET deposit = deposit + {SumRub} WHERE id_user = {id}";
-
-            SqlCommand command = new SqlCommand(querystring, database.GetConnection());
-            database.OpenConnection();
-            command.ExecuteNonQuery();
-            database.CloseConnection();
+            database.Dbrequest($"UPDATE users SET deposit = deposit + {SumRub} WHERE id_user = {id}");
 
         }
-        public void money_takeoff_deposit(int SumRub, int id)
+        public void Money_takeoff_deposit(int SumRub, int id)
         {
-            string querystring = $"UPDATE users SET deposit = deposit - {SumRub} WHERE id_user = {id}";
-
-            SqlCommand command = new SqlCommand(querystring, database.GetConnection());
-            database.OpenConnection();
-            command.ExecuteNonQuery();
-            database.CloseConnection();
+            database.Dbrequest($"UPDATE users SET deposit = deposit - {SumRub} WHERE id_user = {id}");
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             Functional_window newFunctionalWindow = new Functional_window(id);
             this.Hide();
@@ -70,7 +62,7 @@ namespace WindowsFormsApp4
         }
 
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void Button1_Click_1(object sender, EventArgs e)
         {
             Money_takeoff mt = new Money_takeoff(id);
             try
@@ -81,8 +73,8 @@ namespace WindowsFormsApp4
                 {
 
 
-                    mt.money_takeoff(SumRub, id);
-                    money_GetDeposit(SumRub * (1 + percent / 100), id);
+                    mt.Money_Takeoff(SumRub, id);
+                    Money_GetDeposit(SumRub * (1 + percent / 100), id);
                     MessageBox.Show("Вы успешно взяли вклад", "Успешно!");
                     Functional_window newFunctionalWindow = new Functional_window(id);
                     this.Hide();
@@ -104,7 +96,7 @@ namespace WindowsFormsApp4
 
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
+        private void Button3_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -113,8 +105,8 @@ namespace WindowsFormsApp4
 
                 if (SumRub <= Int32.Parse(label8.Text))
                 {
-                    mg.money_Get(SumRub, id);
-                    money_takeoff_deposit(SumRub, id);  
+                    mg.Money_get(SumRub, id);
+                    Money_takeoff_deposit(SumRub, id);  
                     MessageBox.Show("Вы сняли деньги с вклада", "Успешно!");
                     Functional_window newFunctionalWindow = new Functional_window(id);
                     this.Hide();

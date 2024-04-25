@@ -16,16 +16,7 @@ namespace WindowsFormsApp4
             this.WindowState = FormWindowState.Maximized;
         }
 
-
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             Login frm_login_Id = new Login();
             this.Hide();

@@ -31,20 +31,20 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dollars = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Continue_Get = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.dollar2 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.Button5 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -81,16 +81,16 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "Введите сумму гонконгских долларов";
             // 
-            // button1
+            // Continue_Get
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(603, 600);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(328, 60);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Продолжить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Continue_Get.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Continue_Get.Location = new System.Drawing.Point(603, 600);
+            this.Continue_Get.Name = "Continue_Get";
+            this.Continue_Get.Size = new System.Drawing.Size(328, 60);
+            this.Continue_Get.TabIndex = 11;
+            this.Continue_Get.Text = "Продолжить";
+            this.Continue_Get.UseVisualStyleBackColor = true;
+            this.Continue_Get.Click += new System.EventHandler(this.Continue_Get_Click);
             // 
             // label2
             // 
@@ -153,19 +153,19 @@
             this.button2.TabIndex = 19;
             this.button2.Text = "Рассчитать";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // button3
+            // Button3
             // 
-            this.button3.BackColor = System.Drawing.Color.PaleGreen;
-            this.button3.Font = new System.Drawing.Font("Arial Narrow", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button3.Location = new System.Drawing.Point(12, 12);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(159, 48);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "<- Назад";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.Button3.BackColor = System.Drawing.Color.PaleGreen;
+            this.Button3.Font = new System.Drawing.Font("Arial Narrow", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Button3.Location = new System.Drawing.Point(12, 12);
+            this.Button3.Name = "Button3";
+            this.Button3.Size = new System.Drawing.Size(159, 48);
+            this.Button3.TabIndex = 20;
+            this.Button3.Text = "<- Назад";
+            this.Button3.UseVisualStyleBackColor = false;
+            this.Button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // label3
             // 
@@ -198,7 +198,7 @@
             this.button4.TabIndex = 26;
             this.button4.Text = "Рассчитать";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.Button4_Click);
             // 
             // label10
             // 
@@ -217,16 +217,16 @@
             this.dollar2.Size = new System.Drawing.Size(328, 22);
             this.dollar2.TabIndex = 24;
             // 
-            // button5
+            // Button5
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.Location = new System.Drawing.Point(1388, 600);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(328, 60);
-            this.button5.TabIndex = 22;
-            this.button5.Text = "Продолжить";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.Button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Button5.Location = new System.Drawing.Point(1388, 600);
+            this.Button5.Name = "Button5";
+            this.Button5.Size = new System.Drawing.Size(328, 60);
+            this.Button5.TabIndex = 22;
+            this.Button5.Text = "Продолжить";
+            this.Button5.UseVisualStyleBackColor = true;
+            this.Button5.Click += new System.EventHandler(this.Button5_Click);
             // 
             // label12
             // 
@@ -303,9 +303,9 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dollar2);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.Button5);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.Button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
@@ -313,7 +313,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dollars);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Continue_Get);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Convertation";
@@ -332,20 +332,20 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox dollars;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Continue_Get;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Button3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox dollar2;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button Button5;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;

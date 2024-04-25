@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Windows.Forms;
+using WindowsFormsApp4.Models;
 
 namespace WindowsFormsApp4
 {
     public partial class Money_trasfer : Form
     {
-        DataBase database = new DataBase();
         
-
-        private int id;
+        readonly Money_operations money = new Money_operations();
+        readonly int id;
         
 
         public Money_trasfer(int userId)
         {
             InitializeComponent();
-            database.CheackMoney(label5, userId);
+            money.CheackMoney(label5, userId);
 
             this.id = userId;
         }
@@ -25,7 +25,7 @@ namespace WindowsFormsApp4
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             
         Money_takeoff mt = new Money_takeoff(id);
@@ -42,8 +42,8 @@ namespace WindowsFormsApp4
 
                 else if (SumRub < Int32.Parse(label5.Text))
                 {
-                    mg.money_Get(SumRub, id1);
-                    mt.money_takeoff(SumRub, id);
+                    mg.Money_get(SumRub, id1);
+                    mt.Money_Takeoff(SumRub, id);
 
                     MessageBox.Show($"Вы успешно перевели деньги на счет {id1} ", "Успешно!");
                     Functional_window newFunctionalWindow = new Functional_window(id);
@@ -61,7 +61,7 @@ namespace WindowsFormsApp4
 
             }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             Functional_window newFunctionalWindow = new Functional_window(id);
             this.Hide();

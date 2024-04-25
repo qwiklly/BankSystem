@@ -1,26 +1,30 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp4.Models;
 
 namespace WindowsFormsApp4
 {
     public partial class Credit : Form
     {
-        private int id;
-        int percent = 4;
-        private DateTime CreditStartTime;
+        readonly int id;
+        readonly int percent = 4;
+        readonly DateTime CreditStartTime;
 
-        DataBase database = new DataBase();
+        readonly DataBase database = new DataBase();
+        readonly Money_operations money = new Money_operations();
 
-        public Credit(int userId)
+        internal Credit(int userId, IDatabase db)
         {
 
             InitializeComponent();
-            database.CheackMoney(label5, userId);
+            this.database = (DataBase)db;
+            money.CheackMoney(label5, userId);
             label6.Text = percent + " %";
-            database.CheackMoney_credit(label8, userId);
+            money.CheackMoney_credit(label8, userId);
             Get_money_fromdb(Int32.Parse(label8.Text));
             this.CreditStartTime = DateTime.Now; // Set the deposit start time
 
@@ -33,11 +37,11 @@ namespace WindowsFormsApp4
             {
                 while (Int32.Parse(label8.Text)<0)
                 {
+                    Thread.Sleep(60000); // Update every minute
+                    double currentSum = Math.Abs(startingSum) * (1 + (percent / 100.0) * (DateTime.Now - CreditStartTime).TotalHours);
+                    Money_GetCredit((int)currentSum, id);
 
-                        double currentSum = Math.Abs(startingSum) * (1 + (percent / 100.0) * (DateTime.Now - CreditStartTime).TotalHours);
-                        money_GetCredit((int)currentSum, id);
-
-                        Thread.Sleep(60000); // Update every minute
+                        
 
                 }
             });
@@ -46,19 +50,12 @@ namespace WindowsFormsApp4
         {
 
         }
-        public void money_GetCredit(int SumRub, int id)
+        public void Money_GetCredit(int SumRub, int id)
         {
-            string querystring = $"UPDATE users SET credit = credit - {SumRub} WHERE id_user = {id}";
-
-            SqlCommand command = new SqlCommand(querystring, database.GetConnection());
-            database.OpenConnection();
-            command.ExecuteNonQuery();
-
-
-            database.CloseConnection();
+            database.Dbrequest($"UPDATE users SET credit = credit - {SumRub} WHERE id_user = {id}");
 
         }
-        public void money_takeoff_credit(int SumRub, int id)
+        public void Money_takeoff_credit(int SumRub, int id)
         {
             string querystring = $"UPDATE users SET credit = credit + {SumRub} WHERE id_user = {id}";
 
@@ -70,7 +67,7 @@ namespace WindowsFormsApp4
             database.CloseConnection();
 
         }
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             Functional_window newFunctionalWindow = new Functional_window(id);
             this.Hide();
@@ -78,7 +75,7 @@ namespace WindowsFormsApp4
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             Money_Get mg = new Money_Get(id);
             try
@@ -90,9 +87,9 @@ namespace WindowsFormsApp4
                 {
 
 
-                    mg.money_Get(SumRub, id);
+                    mg.Money_get(SumRub, id);
                     
-                    money_GetCredit(SumCredit, id);
+                    Money_GetCredit(SumCredit, id);
                     MessageBox.Show("Вы успешно взяли крредит", "Успешно!");
                     Functional_window newFunctionalWindow = new Functional_window(id);
                     this.Hide();
@@ -108,7 +105,7 @@ namespace WindowsFormsApp4
             catch { MessageBox.Show("Что-то пошло не так! Проверьте правильность введенной суммы"); }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             try
             {
@@ -117,8 +114,8 @@ namespace WindowsFormsApp4
 
                 if (SumRub < Int32.Parse(label5.Text) && SumRub >0)
                 {
-                    takeoff.money_takeoff(SumRub, id);
-                    money_takeoff_credit(SumRub, id);
+                    takeoff.Money_Takeoff(SumRub, id);
+                    Money_takeoff_credit(SumRub, id);
                     MessageBox.Show("Вы погасили кредит", "Успешно!");
                     Functional_window newFunctionalWindow = new Functional_window(id);
                     this.Hide();

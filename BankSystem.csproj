@@ -77,13 +77,17 @@
     <Compile Include="Functional_window.Designer.cs">
       <DependentUpon>Functional_window.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Interface1.cs" />
+    <Compile Include="Inrerfaces_1\IApi.cs" />
+    <Compile Include="Inrerfaces_1\IMoneyOperations.cs" />
+    <Compile Include="Models\APIs.cs" />
+    <Compile Include="Inrerfaces_1\IDatabase.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Money_operations.cs" />
     <Compile Include="Money_takeoff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,5 +176,6 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

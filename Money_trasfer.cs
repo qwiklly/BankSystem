@@ -9,7 +9,6 @@ namespace WindowsFormsApp4
         
         readonly Money_operations money = new Money_operations();
         readonly int id;
-        
 
         public Money_trasfer(int userId)
         {

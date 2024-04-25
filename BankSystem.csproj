@@ -47,89 +47,89 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\DataBase.cs" />
-    <Compile Include="Deposit.cs">
+    <Compile Include="Views\Deposit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Deposit.Designer.cs">
+    <Compile Include="Views\Deposit.Designer.cs">
       <DependentUpon>Deposit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Views\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Convertation.cs">
+    <Compile Include="Views\Convertation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Convertation.Designer.cs">
+    <Compile Include="Views\Convertation.Designer.cs">
       <DependentUpon>Convertation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Credit.cs">
+    <Compile Include="Views\Credit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Credit.Designer.cs">
+    <Compile Include="Views\Credit.Designer.cs">
       <DependentUpon>Credit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Functional_window.cs">
+    <Compile Include="Views\Functional_window.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Functional_window.Designer.cs">
+    <Compile Include="Views\Functional_window.Designer.cs">
       <DependentUpon>Functional_window.cs</DependentUpon>
     </Compile>
     <Compile Include="Inrerfaces_1\IApi.cs" />
     <Compile Include="Inrerfaces_1\IMoneyOperations.cs" />
     <Compile Include="Models\APIs.cs" />
     <Compile Include="Inrerfaces_1\IDatabase.cs" />
-    <Compile Include="Login.cs">
+    <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Views\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Money_operations.cs" />
-    <Compile Include="Money_takeoff.cs">
+    <Compile Include="Views\Money_takeoff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Money_takeoff.Designer.cs">
+    <Compile Include="Views\Money_takeoff.Designer.cs">
       <DependentUpon>Money_takeoff.cs</DependentUpon>
     </Compile>
-    <Compile Include="Money_trasfer.cs">
+    <Compile Include="Views\Money_trasfer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Money_trasfer.Designer.cs">
+    <Compile Include="Views\Money_trasfer.Designer.cs">
       <DependentUpon>Money_trasfer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Money_Get.cs">
+    <Compile Include="Views\Money_Get.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Money_Get.Designer.cs">
+    <Compile Include="Views\Money_Get.Designer.cs">
       <DependentUpon>Money_Get.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Deposit.resx">
+    <EmbeddedResource Include="Views\Deposit.resx">
       <DependentUpon>Deposit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Views\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Convertation.resx">
+    <EmbeddedResource Include="Views\Convertation.resx">
       <DependentUpon>Convertation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Credit.resx">
+    <EmbeddedResource Include="Views\Credit.resx">
       <DependentUpon>Credit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Functional_window.resx">
+    <EmbeddedResource Include="Views\Functional_window.resx">
       <DependentUpon>Functional_window.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Money_takeoff.resx">
+    <EmbeddedResource Include="Views\Money_takeoff.resx">
       <DependentUpon>Money_takeoff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Money_trasfer.resx">
+    <EmbeddedResource Include="Views\Money_trasfer.resx">
       <DependentUpon>Money_trasfer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -141,7 +141,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Money_Get.resx">
+    <EmbeddedResource Include="Views\Money_Get.resx">
       <DependentUpon>Money_Get.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

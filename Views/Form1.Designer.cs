@@ -50,6 +50,8 @@
             // 
             // Button2
             // 
+            this.Button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Button2.AutoSize = true;
             this.Button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.Button2.Location = new System.Drawing.Point(787, 802);
             this.Button2.Name = "Button2";
@@ -75,6 +77,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

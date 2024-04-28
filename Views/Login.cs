@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Data;
-using System.Data.SqlClient;
+
+using System.Data.SQLite;
 
 using System.Windows.Forms;
 
 
 namespace WindowsFormsApp4
 {
-    
+
     public partial class Login : Form
     {
 
@@ -17,47 +18,42 @@ namespace WindowsFormsApp4
         {
             InitializeComponent();
         }
-        
-        
+
+
 
         private void Form3_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            try
+            var id = Int32.Parse(textBox1_id.Text);
+            DataTable table = new DataTable();
+            string querystring = $"select id_user from Users where id_user = '{id}' ";
+            database.OpenConnection();
+
+            SQLiteCommand command = new SQLiteCommand(querystring, database.GetConnection());
+
+            SQLiteDataAdapter adapter = new SQLiteDataAdapter(command);
+            adapter.Fill(table);
+
+            
+            database.CloseConnection();
+
+
+            if (table.Rows.Count == 1)
             {
-                var id = Int32.Parse(textBox1_id.Text);
-                
-
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                DataTable table = new DataTable();
-
-                string querystring = $"select id_user from users where id_user = '{id}' ";
-
-                SqlCommand command = new SqlCommand(querystring, database.GetConnection());
-
-                adapter.SelectCommand = command;
-                adapter.Fill(table);
-
-                if (table.Rows.Count == 1)
-
-                {
-                    MessageBox.Show("Вы успешно вошли", "Успешно!");
-                    Functional_window frm_login = new Functional_window(id);
-                    this.Hide();
-                    frm_login.ShowDialog();
-                    Close();
-
-                }
-                else
-                {
-                    MessageBox.Show("что-то пошло не так!, проверьте правильность введенного id ");
-                }
+                MessageBox.Show("Вы успешно вошли", "Успешно!");
+                Functional_window frm_login = new Functional_window(id);
+                this.Hide();
+                frm_login.ShowDialog();
+                Close();
             }
-            catch  { MessageBox.Show("что-то пошло не так!, проверьте правильность введенного id "); }
+            else
+            {
+                MessageBox.Show("Что-то пошло не так! Проверьте правильность введенного ID.");
+            }
         }
     }
 }

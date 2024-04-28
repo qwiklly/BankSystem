@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 
 
-internal interface IMoneyOperations :IDatabase
+internal interface IMoneyOperations 
 {
     void CheackMoney(Label labelUserMoney, int id);
     void CheackMoney_HKD(Label labelUserMoney, int id);

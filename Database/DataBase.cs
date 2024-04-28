@@ -1,45 +1,41 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Data;
-using System.Windows.Forms;
-using System.Net;
-using System.Xml.Linq;
+﻿using System.Data;
+using System.Data.SQLite;
 
 namespace WindowsFormsApp4
 {
     internal class DataBase : IDatabase
     {
-        readonly SqlConnection sqlConnection = new SqlConnection(@"Data Source=DESKTOP-05LAS6Q;Initial Catalog=test;Integrated Security=True");
+        readonly SQLiteConnection sqliteConnection = new SQLiteConnection("Data Source=MyDB.sqlite;Version=3;");
 
         public void OpenConnection()
         {
-            if (sqlConnection.State == ConnectionState.Closed)
+            if (sqliteConnection.State == ConnectionState.Closed)
             {
-                sqlConnection.Open();
+                sqliteConnection.Open();
             }
         }
 
         public void CloseConnection()
         {
-            if (sqlConnection.State == ConnectionState.Open)
+            if (sqliteConnection.State == ConnectionState.Open)
             {
-                sqlConnection.Close();
+                sqliteConnection.Close();
             }
         }
 
-        public SqlConnection GetConnection()
+        public SQLiteConnection GetConnection()
         {
-            return sqlConnection;
+            return sqliteConnection;
         }
+
         public void Dbrequest(string querystring)
         {
-            SqlCommand command = new SqlCommand(querystring, GetConnection());
+            SQLiteCommand command = new SQLiteCommand(querystring, GetConnection());
             OpenConnection();
             command.ExecuteNonQuery();
             CloseConnection();
         }
-
-
     }
 }
+
+

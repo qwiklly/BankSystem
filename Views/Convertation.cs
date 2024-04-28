@@ -100,7 +100,7 @@ namespace WindowsFormsApp4
                 double roubles_Convert = Double.Parse(label6.Text) * Double.Parse(dollar2.Text);
                 
                 int dollarsHKD = Int32.Parse(dollar2.Text);
-                if (dollarsHKD < Int32.Parse(label29.Text)) {
+                if (dollarsHKD <= Int32.Parse(label29.Text)) {
 
 
                     Takeoff_HKD(dollarsHKD, id);

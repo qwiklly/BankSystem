@@ -34,7 +34,7 @@ namespace WindowsFormsApp4
             {
                 while (true)
                 {
-                    Thread.Sleep(60000); // Update every minute
+                    Thread.Sleep(30000); // Update every 30 sec
                     double currentSum = startingSum * (1 + (percent / 100.0) * (DateTime.Now - depositStartTime).TotalHours);
                     Money_GetDeposit((int)currentSum, id);
 

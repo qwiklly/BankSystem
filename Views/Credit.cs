@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Data.SqlClient;
-using System.Net;
+using System.Data.SQLite;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,7 +36,7 @@ namespace WindowsFormsApp4
             {
                 while (Int32.Parse(label8.Text)<0)
                 {
-                    Thread.Sleep(60000); // Update every minute
+                    Thread.Sleep(30000); // Update every 30 sec
                     double currentSum = Math.Abs(startingSum) * (1 + (percent / 100.0) * (DateTime.Now - CreditStartTime).TotalHours);
                     Money_GetCredit((int)currentSum, id);
 
@@ -59,7 +58,7 @@ namespace WindowsFormsApp4
         {
             string querystring = $"UPDATE users SET credit = credit + {SumRub} WHERE id_user = {id}";
 
-            SqlCommand command = new SqlCommand(querystring, database.GetConnection());
+            SQLiteCommand command = new SQLiteCommand(querystring, database.GetConnection());
             database.OpenConnection();
             command.ExecuteNonQuery();
 

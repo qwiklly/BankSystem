@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Data.SqlClient;
-using System.Security.Policy;
 using System.Windows.Forms;
-using WindowsFormsApp4.Models;
+using WindowsFormsApp4.Controllers;
 
 namespace WindowsFormsApp4
 {
@@ -19,9 +17,9 @@ namespace WindowsFormsApp4
             async void initialize()
             {
 
-                money.CheackMoney(label5, userId);
-                money.CheackMoney_HKD(label29, userId);
-                await api.ApiValute(label6);
+                money.CheackMoney(label5, userId);//В текстовом поле отображается баланс в рублях
+                money.CheackMoney_HKD(label29, userId);//В текстовом поле отображается баланс в Гонконгских долларах
+                await api.ApiValute(label6); //курс гонконгского доллара
                 
             }
             initialize();
@@ -42,7 +40,7 @@ namespace WindowsFormsApp4
         {
 
         }
-
+        //Обмен рублей на гонконгские доллары
         private void Continue_Get_Click(object sender, EventArgs e)
         {
 
@@ -80,7 +78,7 @@ namespace WindowsFormsApp4
             }
             catch { MessageBox.Show("проверьте правильность ввода", "Успешно!"); }
         }
-
+        //Подсчет количества средств в рублях, за покупку н-ного количево долларов
         private void Button2_Click(object sender, EventArgs e)
         {
             try
@@ -90,7 +88,7 @@ namespace WindowsFormsApp4
             }
             catch { MessageBox.Show("Введите правильное колличество долларов", "Успешно!"); }
         }
-
+        //Обмен гонконгских долларов на рубли
         private void Button5_Click(object sender, EventArgs e)
         {
             Money_Get mg = new Money_Get(id);
@@ -127,7 +125,7 @@ namespace WindowsFormsApp4
             }
             catch { MessageBox.Show("Введите правильное колличество долларов", "Успешно!"); }
         }
-
+        //Подсчет количества средств в рублях, за  нное количево долларов
         private void Button4_Click(object sender, EventArgs e)
         {
             try

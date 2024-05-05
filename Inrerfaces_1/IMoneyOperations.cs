@@ -1,6 +1,4 @@
 ﻿using System.Windows.Forms;
-
-
 internal interface IMoneyOperations 
 {
     void CheackMoney(Label labelUserMoney, int id);

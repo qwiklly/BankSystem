@@ -63,6 +63,16 @@ namespace WindowsFormsApp4.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bank {
+            get {
+                object obj = ResourceManager.GetObject("bank", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bank_78392 {
             get {
                 object obj = ResourceManager.GetObject("bank_78392", resourceCulture);
@@ -73,9 +83,39 @@ namespace WindowsFormsApp4.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bank2 {
+            get {
+                object obj = ResourceManager.GetObject("bank2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bank31 {
+            get {
+                object obj = ResourceManager.GetObject("bank31", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Piggy_Bank_Farm_logo_min {
             get {
                 object obj = ResourceManager.GetObject("Piggy-Bank-Farm-logo-min", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Piggy_Bank_Farm_logo_min1 {
+            get {
+                object obj = ResourceManager.GetObject("Piggy-Bank-Farm-logo-min1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

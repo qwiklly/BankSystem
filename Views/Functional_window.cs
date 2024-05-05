@@ -1,27 +1,21 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using WindowsFormsApp4.Models;
+using WindowsFormsApp4.Controllers;
 
 namespace WindowsFormsApp4
 {
     public partial class Functional_window : Form
     {
-
-
-        
         readonly int userId;
         readonly DataBase database = new DataBase();
         readonly Money_operations money = new Money_operations();
-
         
         public Functional_window(int id)
         {
             InitializeComponent();
-            
             money.CheackMoney(label24, id);
             money.CheackMoney_HKD(label29, id);
-
             label28.Text = id.ToString();
             this.userId = id;
         }
@@ -32,8 +26,6 @@ namespace WindowsFormsApp4
         {       
             this.WindowState = FormWindowState.Maximized;
         }
-
-
 
         //Снятие средств со счета
         private void Panel2_Click(object sender, EventArgs e)
@@ -60,8 +52,6 @@ namespace WindowsFormsApp4
             Money_Get  money_Get = new Money_Get(userId);
             this.Hide();
             money_Get.ShowDialog();
-            
-
         }
         private void Panel3_MouseEnter_1(object sender, EventArgs e)
         {
@@ -76,7 +66,7 @@ namespace WindowsFormsApp4
         }
         private void Panel4_Click(object sender, EventArgs e)
         {
-            Credit credit = new Credit(userId, database);
+            Credit credit = new Credit(userId);
             this.Hide();
             credit.ShowDialog();
         }
@@ -94,7 +84,7 @@ namespace WindowsFormsApp4
 
         private void Panel5_Click(object sender, EventArgs e)
         {
-            Deposit deposit = new Deposit(userId, database);
+            Deposit deposit = new Deposit(userId);
             this.Hide();
             deposit.ShowDialog();
             
@@ -147,8 +137,6 @@ namespace WindowsFormsApp4
             Panel panel = (Panel)sender;
             panel.BackColor = Color.White; 
         }
-
-       
 
         private void Exit_Click(object sender, EventArgs e)
         {

@@ -1,13 +1,15 @@
 ﻿using System.Data;
 using System.Data.SQLite;
+using System.Configuration;
 
 namespace WindowsFormsApp4
 {
     internal class DataBase : IDatabase
     {
-        readonly SQLiteConnection sqliteConnection = new SQLiteConnection("Data Source=MyDB.sqlite;Version=3;");
+		static readonly string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+		readonly SQLiteConnection sqliteConnection = new SQLiteConnection(connectionString);
 
-        public void OpenConnection()
+		public void OpenConnection()
         {
             if (sqliteConnection.State == ConnectionState.Closed)
             {
@@ -27,7 +29,7 @@ namespace WindowsFormsApp4
         {
             return sqliteConnection;
         }
-
+        //Basic commands for bd connection (подключаемся к базе данных и создаём запросы)
         public void Dbrequest(string querystring)
         {
             SQLiteCommand command = new SQLiteCommand(querystring, GetConnection());

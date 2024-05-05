@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Data.SqlClient;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp4.Models;
+using WindowsFormsApp4.Controllers;
 
 
 namespace WindowsFormsApp4
@@ -16,10 +15,9 @@ namespace WindowsFormsApp4
         readonly DataBase database = new DataBase();
         readonly Money_operations money = new Money_operations();
 
-        internal Deposit(int userId, IDatabase db)
+        internal Deposit(int userId)
         {
             InitializeComponent();
-            this.database = (DataBase)db;
             money.CheackMoney(label5, userId);
             label6.Text = percent + " %";
             money.CheackMoney_deposit(label8, userId);
@@ -37,11 +35,10 @@ namespace WindowsFormsApp4
                     Thread.Sleep(30000); // Update every 30 sec
                     double currentSum = startingSum * (1 + (percent / 100.0) * (DateTime.Now - depositStartTime).TotalHours);
                     Money_GetDeposit((int)currentSum, id);
-
-                    
                 }
             });
         }
+
         public void Money_GetDeposit(int SumRub, int id)
         {
             database.Dbrequest($"UPDATE users SET deposit = deposit + {SumRub} WHERE id_user = {id}");
@@ -71,8 +68,6 @@ namespace WindowsFormsApp4
                 
                 if (SumRub > 0 && SumRub < Int32.Parse(label5.Text))
                 {
-
-
                     mt.Money_Takeoff(SumRub, id);
                     Money_GetDeposit(SumRub * (1 + percent / 100), id);
                     MessageBox.Show("Вы успешно взяли вклад", "Успешно!");
@@ -80,13 +75,9 @@ namespace WindowsFormsApp4
                     this.Hide();
                     newFunctionalWindow.ShowDialog();
                     this.Close();
-                    
-
                 }
-                else
-                {
-                    MessageBox.Show("Что-то пошло не так! Проверьте правильность введенной суммы");
-                }
+                else MessageBox.Show("Что-то пошло не так! Проверьте правильность введенной суммы");
+                
             }
             catch { MessageBox.Show("Что-то пошло не так! Проверьте правильность введенной суммы"); }
         }
@@ -112,16 +103,11 @@ namespace WindowsFormsApp4
                     this.Hide();
                     newFunctionalWindow.ShowDialog();
                     this.Close();
-
                 }
-                else
-                {
-                    MessageBox.Show("Сумма снятия больше суммы вклада", "FAIL!");
-                }
+                else MessageBox.Show("Сумма снятия больше суммы вклада", "FAIL!");
             }
             catch { MessageBox.Show("Что-то пошло не так! Проверьте правильность введенной суммы"); }
         }
     }
-
 }
 

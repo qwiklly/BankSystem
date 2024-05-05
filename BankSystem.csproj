@@ -71,6 +71,7 @@
       <HintPath>packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SQLite, Version=1.0.118.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.118.0\lib\net46\System.Data.SQLite.dll</HintPath>
@@ -117,6 +118,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\DataBase.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Deposit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,15 +155,9 @@
     </Compile>
     <Compile Include="Inrerfaces_1\IApi.cs" />
     <Compile Include="Inrerfaces_1\IMoneyOperations.cs" />
-    <Compile Include="Models\APIs.cs" />
+    <Compile Include="Controllers\APIs.cs" />
     <Compile Include="Inrerfaces_1\IDatabase.cs" />
-    <Compile Include="Views\Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Money_operations.cs" />
+    <Compile Include="Controllers\Money_operations.cs" />
     <Compile Include="Views\Money_takeoff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,9 +193,6 @@
     <EmbeddedResource Include="Views\Functional_window.resx">
       <DependentUpon>Functional_window.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Money_takeoff.resx">
       <DependentUpon>Money_takeoff.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,14 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Views\Money_Get.resx">
       <DependentUpon>Money_Get.cs</DependentUpon>
     </EmbeddedResource>
@@ -249,6 +241,9 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="pictures\bank2.jpg" />
+    <Content Include="pictures\bank.jpg" />
+    <Content Include="pictures\bank3.png" />
     <Content Include="pictures\bank_78392.png" />
     <Content Include="pictures\Piggy-Bank-Farm-logo-min.jpg" />
   </ItemGroup>

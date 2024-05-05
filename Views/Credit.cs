@@ -3,7 +3,7 @@ using System.Data.SQLite;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp4.Models;
+using WindowsFormsApp4.Controllers;
 
 namespace WindowsFormsApp4
 {
@@ -16,11 +16,10 @@ namespace WindowsFormsApp4
         readonly DataBase database = new DataBase();
         readonly Money_operations money = new Money_operations();
 
-        internal Credit(int userId, IDatabase db)
+        internal Credit(int userId)
         {
 
             InitializeComponent();
-            this.database = (DataBase)db;
             money.CheackMoney(label5, userId);
             label6.Text = percent + " %";
             money.CheackMoney_credit(label8, userId);
@@ -39,17 +38,11 @@ namespace WindowsFormsApp4
                     Thread.Sleep(30000); // Update every 30 sec
                     double currentSum = Math.Abs(startingSum) * (1 + (percent / 100.0) * (DateTime.Now - CreditStartTime).TotalHours);
                     Money_GetCredit((int)currentSum, id);
-
-                        
-
                 }
             });
         }
-        private void Credit_Load(object sender, EventArgs e)
-        {
 
-        }
-        public void Money_GetCredit(int SumRub, int id)
+		public void Money_GetCredit(int SumRub, int id)
         {
             database.Dbrequest($"UPDATE users SET credit = credit - {SumRub} WHERE id_user = {id}");
 
@@ -73,7 +66,7 @@ namespace WindowsFormsApp4
             newFunctionalWindow.ShowDialog();
             this.Close();
         }
-
+        //взятие кредита
         private void Button1_Click(object sender, EventArgs e)
         {
             Money_Get mg = new Money_Get(id);
@@ -103,7 +96,7 @@ namespace WindowsFormsApp4
             }
             catch { MessageBox.Show("Что-то пошло не так! Проверьте правильность введенной суммы"); }
         }
-
+        //Погашение кредита
         private void Button3_Click(object sender, EventArgs e)
         {
             try
@@ -129,5 +122,10 @@ namespace WindowsFormsApp4
             }
             catch { MessageBox.Show("Что-то пошло не так! Проверьте правильность введенной суммы"); }
         }
-    }
+
+		private void Credit_Load(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

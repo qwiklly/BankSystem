@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SQLite;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp4
@@ -21,11 +19,12 @@ namespace WindowsFormsApp4
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+		}
 
-        }
         private static void InitializeDatabase()
         {
-            using (SQLiteConnection conn = new SQLiteConnection("Data Source=MyDB.sqlite;Version=3;"))
+			string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+			using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
                 conn.Open();
 

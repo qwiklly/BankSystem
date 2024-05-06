@@ -26,7 +26,7 @@
 ![Screenshot 2024-05-06 200300](https://github.com/qwiklly/BankSystem/assets/157243767/61f816d4-37cd-4458-8950-421af02df2f0)
 
 ### 
-Кредит            |  перевод средств
+**Кредит**            |  **перевод средств**
 :-------------------------:|:-------------------------:
 ![Screenshot 2024-05-06 200348](https://github.com/qwiklly/BankSystem/assets/157243767/c9770d47-c5e2-4cec-b5f8-b98a887077f6)   |  ![image](https://github.com/qwiklly/BankSystem/assets/157243767/d5dbdf7c-c9c2-4d72-8d43-4f3ddfaa0170)
 

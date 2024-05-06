@@ -1,9 +1,23 @@
-**This project is a banking system( ATM)**. 
-The types of transactions available are : 
-1. Withdrawal/replenishment of account.
-2. Currency conversion to Hong Kong dollars
-3. Funds transfer
-4. Deposit and credit
+# Описание проекта: Банковская система (банкомат)
+Данный проект это банковская система, реализованная с помощью win forms с применением базы данных sql lite. В данном проекте представлены все основные операции связанные с денежными средствами. Также присутствует возможность конвертировать рубли в гонконгские доллары по актуальному курсу центробанка.
 
-![image](https://github.com/qwiklly/BankSystem/assets/157243767/49334ba7-8a0a-4e43-bee8-f7eddd3d8912)
+# Используемые технологии
+* **Win Forms, Sql Lite, Entity Framework 6.
 
+# Основной функционал:
+* Вход по id - пользователя.
+* Снятие, пополнение баланса.
+* Перевод денежных средств между пользователями.
+* Конвертация рублей в гонконгские доллары и обратная конвертация.
+* Взятие кредита.
+* Открытие вклада.
+
+## Изображения форм
+**Форма входа**
+![Screenshot 2024-05-06 200455](https://github.com/qwiklly/BankSystem/assets/157243767/ac63194a-15eb-47b7-a88d-931f0056f78b)
+**Функциональное меню**
+![Screenshot 2024-05-06 200237](https://github.com/qwiklly/BankSystem/assets/157243767/88398e7a-7bb4-4707-add5-fdd48189f4d2)
+**Конвертация валюты**
+![Screenshot 2024-05-06 200300](https://github.com/qwiklly/BankSystem/assets/157243767/61f816d4-37cd-4458-8950-421af02df2f0)
+**Кредит**
+![Screenshot 2024-05-06 200348](https://github.com/qwiklly/BankSystem/assets/157243767/c9770d47-c5e2-4cec-b5f8-b98a887077f6)

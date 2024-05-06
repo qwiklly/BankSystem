@@ -13,11 +13,22 @@
 * Открытие вклада.
 
 ## Изображения форм
-**Форма входа**
+### **Форма входа**
+
 ![Screenshot 2024-05-06 200455](https://github.com/qwiklly/BankSystem/assets/157243767/ac63194a-15eb-47b7-a88d-931f0056f78b)
-**Функциональное меню**
+
+### **Функциональное меню**
+
 ![Screenshot 2024-05-06 200237](https://github.com/qwiklly/BankSystem/assets/157243767/88398e7a-7bb4-4707-add5-fdd48189f4d2)
-**Конвертация валюты**
+
+### **Конвертация валюты**
+
 ![Screenshot 2024-05-06 200300](https://github.com/qwiklly/BankSystem/assets/157243767/61f816d4-37cd-4458-8950-421af02df2f0)
-**Кредит**
+
+### **Кредит**
+
 ![Screenshot 2024-05-06 200348](https://github.com/qwiklly/BankSystem/assets/157243767/c9770d47-c5e2-4cec-b5f8-b98a887077f6)
+
+### **Перевод средств**
+
+![image](https://github.com/qwiklly/BankSystem/assets/157243767/d5dbdf7c-c9c2-4d72-8d43-4f3ddfaa0170)

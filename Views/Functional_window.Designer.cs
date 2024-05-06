@@ -228,7 +228,7 @@
 			this.label17.AutoSize = true;
 			this.label17.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.label17.Location = new System.Drawing.Point(18, 177);
+			this.label17.Location = new System.Drawing.Point(20, 177);
 			this.label17.Name = "label17";
 			this.label17.Size = new System.Drawing.Size(260, 28);
 			this.label17.TabIndex = 9;
@@ -239,7 +239,7 @@
 			this.label18.AutoSize = true;
 			this.label18.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.label18.Location = new System.Drawing.Point(18, 101);
+			this.label18.Location = new System.Drawing.Point(20, 101);
 			this.label18.Name = "label18";
 			this.label18.Size = new System.Drawing.Size(125, 28);
 			this.label18.TabIndex = 9;
@@ -249,7 +249,7 @@
 			// 
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label5.Location = new System.Drawing.Point(17, 22);
+			this.label5.Location = new System.Drawing.Point(20, 22);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(229, 37);
 			this.label5.TabIndex = 7;
@@ -284,7 +284,7 @@
 			this.label16.AutoSize = true;
 			this.label16.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.label16.Location = new System.Drawing.Point(23, 106);
+			this.label16.Location = new System.Drawing.Point(20, 101);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(125, 28);
 			this.label16.TabIndex = 8;
@@ -294,7 +294,7 @@
 			// 
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label7.Location = new System.Drawing.Point(17, 22);
+			this.label7.Location = new System.Drawing.Point(20, 22);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(245, 37);
 			this.label7.TabIndex = 7;
@@ -329,7 +329,7 @@
 			this.label20.AutoSize = true;
 			this.label20.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.label20.Location = new System.Drawing.Point(19, 112);
+			this.label20.Location = new System.Drawing.Point(20, 112);
 			this.label20.Name = "label20";
 			this.label20.Size = new System.Drawing.Size(292, 28);
 			this.label20.TabIndex = 11;
@@ -339,7 +339,7 @@
 			// 
 			this.label9.AutoSize = true;
 			this.label9.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label9.Location = new System.Drawing.Point(17, 22);
+			this.label9.Location = new System.Drawing.Point(20, 22);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(111, 37);
 			this.label9.TabIndex = 7;
@@ -373,7 +373,7 @@
 			this.label21.AutoSize = true;
 			this.label21.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.label21.Location = new System.Drawing.Point(19, 112);
+			this.label21.Location = new System.Drawing.Point(20, 112);
 			this.label21.Name = "label21";
 			this.label21.Size = new System.Drawing.Size(292, 28);
 			this.label21.TabIndex = 11;
@@ -383,7 +383,7 @@
 			// 
 			this.label11.AutoSize = true;
 			this.label11.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label11.Location = new System.Drawing.Point(17, 22);
+			this.label11.Location = new System.Drawing.Point(20, 22);
 			this.label11.Name = "label11";
 			this.label11.Size = new System.Drawing.Size(97, 37);
 			this.label11.TabIndex = 7;
@@ -413,7 +413,7 @@
 			// 
 			this.label13.AutoSize = true;
 			this.label13.Font = new System.Drawing.Font("Calibri", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label13.Location = new System.Drawing.Point(28, 125);
+			this.label13.Location = new System.Drawing.Point(30, 125);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(247, 45);
 			this.label13.TabIndex = 12;
@@ -441,7 +441,7 @@
 			this.label19.AutoSize = true;
 			this.label19.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.label19.Location = new System.Drawing.Point(19, 112);
+			this.label19.Location = new System.Drawing.Point(20, 115);
 			this.label19.Name = "label19";
 			this.label19.Size = new System.Drawing.Size(292, 28);
 			this.label19.TabIndex = 10;
@@ -451,7 +451,7 @@
 			// 
 			this.label14.AutoSize = true;
 			this.label14.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label14.Location = new System.Drawing.Point(17, 22);
+			this.label14.Location = new System.Drawing.Point(20, 22);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(303, 37);
 			this.label14.TabIndex = 7;
@@ -469,7 +469,7 @@
 			// 
 			this.Exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.Exit.BackColor = System.Drawing.Color.PaleGreen;
-			this.Exit.Font = new System.Drawing.Font("Calibri", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.Exit.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.Exit.Location = new System.Drawing.Point(30, 864);
 			this.Exit.Name = "Exit";
 			this.Exit.Size = new System.Drawing.Size(498, 157);
@@ -499,7 +499,7 @@
 			this.label25.AutoSize = true;
 			this.label25.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.label25.Location = new System.Drawing.Point(19, 115);
+			this.label25.Location = new System.Drawing.Point(20, 115);
 			this.label25.Name = "label25";
 			this.label25.Size = new System.Drawing.Size(403, 28);
 			this.label25.TabIndex = 10;
@@ -509,7 +509,7 @@
 			// 
 			this.label26.AutoSize = true;
 			this.label26.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label26.Location = new System.Drawing.Point(17, 22);
+			this.label26.Location = new System.Drawing.Point(20, 22);
 			this.label26.Name = "label26";
 			this.label26.Size = new System.Drawing.Size(297, 37);
 			this.label26.TabIndex = 7;

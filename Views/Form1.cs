@@ -54,5 +54,10 @@ namespace WindowsFormsApp4
 			}
 			catch { MessageBox.Show("Что-то пошло не так! Проверьте правильность введенного ID."); }
 		}
+
+		private void pictureBox1_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

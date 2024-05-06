@@ -99,25 +99,5 @@ namespace WindowsFormsApp4.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Piggy_Bank_Farm_logo_min {
-            get {
-                object obj = ResourceManager.GetObject("Piggy-Bank-Farm-logo-min", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Piggy_Bank_Farm_logo_min1 {
-            get {
-                object obj = ResourceManager.GetObject("Piggy-Bank-Farm-logo-min1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

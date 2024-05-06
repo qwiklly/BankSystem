@@ -38,8 +38,8 @@ namespace WindowsFormsApp4
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
-        }
+			this.WindowState = FormWindowState.Maximized;
+		}
         //Обмен рублей на гонконгские доллары
         private void Continue_Get_Click(object sender, EventArgs e)
         {

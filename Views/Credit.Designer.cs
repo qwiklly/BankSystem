@@ -46,7 +46,6 @@
 			// 
 			// Button2
 			// 
-			this.Button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.Button2.BackColor = System.Drawing.Color.PaleGreen;
 			this.Button2.Font = new System.Drawing.Font("Calibri", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.Button2.Location = new System.Drawing.Point(20, 20);

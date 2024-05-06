@@ -46,7 +46,7 @@
 			this.Button2.AutoSize = true;
 			this.Button2.BackColor = System.Drawing.Color.White;
 			this.Button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-			this.Button2.Location = new System.Drawing.Point(615, 833);
+			this.Button2.Location = new System.Drawing.Point(625, 834);
 			this.Button2.Margin = new System.Windows.Forms.Padding(0);
 			this.Button2.Name = "Button2";
 			this.Button2.Size = new System.Drawing.Size(574, 99);
@@ -96,7 +96,7 @@
 			// 
 			this.textBox1_id.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.textBox1_id.Font = new System.Drawing.Font("Calibri", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBox1_id.Location = new System.Drawing.Point(615, 671);
+			this.textBox1_id.Location = new System.Drawing.Point(625, 671);
 			this.textBox1_id.Name = "textBox1_id";
 			this.textBox1_id.Size = new System.Drawing.Size(574, 53);
 			this.textBox1_id.TabIndex = 14;
@@ -108,7 +108,7 @@
 			this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.label3.Font = new System.Drawing.Font("Calibri", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.label3.ForeColor = System.Drawing.Color.White;
-			this.label3.Location = new System.Drawing.Point(615, 433);
+			this.label3.Location = new System.Drawing.Point(608, 436);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(745, 97);
 			this.label3.TabIndex = 13;

@@ -93,13 +93,12 @@
 			this.label1.Font = new System.Drawing.Font("Calibri", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label1.Location = new System.Drawing.Point(390, 20);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(474, 54);
+			this.label1.Size = new System.Drawing.Size(466, 53);
 			this.label1.TabIndex = 8;
 			this.label1.Text = "Снятие средств со счета";
 			// 
 			// Button2
 			// 
-			this.Button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.Button2.BackColor = System.Drawing.Color.PaleGreen;
 			this.Button2.Font = new System.Drawing.Font("Calibri", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.Button2.Location = new System.Drawing.Point(20, 20);

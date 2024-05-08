@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp4.Controllers;
 
@@ -11,22 +12,25 @@ namespace WindowsFormsApp4
         readonly private int id;
         readonly DataBase database = new DataBase();
         readonly Money_operations money = new Money_operations();
-        public Convertation(int userId)
-        {
-            InitializeComponent();
-            async void initialize()
-            {
+		public Convertation(int userId)
+		{
+			InitializeComponent();
+			InitializeAsync(userId); // Дожидаемся завершения выполнения асинхронной операции
+			this.id = userId;
+		}
 
-                money.CheackMoney(label5, userId);//В текстовом поле отображается баланс в рублях
-                money.CheackMoney_HKD(label29, userId);//В текстовом поле отображается баланс в Гонконгских долларах
-                await api.ApiValute(label6); //курс гонконгского доллара
-                
-            }
-            initialize();
-            this.id = userId;
-        }
-        
-        private void Get_HKD(int dollarsHKD, int id) 
+		private async void InitializeAsync(int userId)
+		{
+			async Task initialize()
+			{
+				money.CheackMoney(label5, userId);
+				money.CheackMoney_HKD(label29, userId);
+				await api.ApiValute(label6);
+			}
+			await initialize();
+		}
+
+		private void Get_HKD(int dollarsHKD, int id) 
         {
             database.Dbrequest($"UPDATE users SET user_HKD = user_HKD + {dollarsHKD} WHERE id_user = {id}");
 

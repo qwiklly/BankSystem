@@ -21,7 +21,7 @@ namespace WindowsFormsApp4.Controllers
 					XDocument xdoc = XDocument.Parse(xml);
 					var el = xdoc.Element("ValCurs").Elements("Valute");
 					string dollar = el.Where(x => x.Attribute("ID").Value == "R01200").Select(x => x.Element("Value").Value).FirstOrDefault();
-					value_dollar.Text = dollar;
+					value_dollar.Text = dollar.Replace(',', '.'); 
 				}
 				catch (Exception ex)
 				{

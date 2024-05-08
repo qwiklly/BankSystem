@@ -78,9 +78,9 @@ namespace WindowsFormsApp4
                     fw.ShowDialog();
                     Close();
                 }
-                else { MessageBox.Show("Недостаточно средств (RUB)", "Успешно!"); }
+                else { MessageBox.Show("Недостаточно средств (RUB)", "Неудача!"); }
             }
-            catch { MessageBox.Show("проверьте правильность ввода", "Успешно!"); }
+            catch { MessageBox.Show("проверьте правильность ввода", "Неудача!"); }
         }
         //Подсчет количества средств в рублях, за покупку н-ного количево долларов
         private void Button2_Click(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace WindowsFormsApp4
                 double res = Double.Parse(label6.Text) * Double.Parse(dollars.Text);
                 label8.Text = res.ToString();
             }
-            catch { MessageBox.Show("Введите правильное колличество долларов", "Успешно!"); }
+            catch { MessageBox.Show("Введите правильное колличество долларов", "Неудача!"); }
         }
         //Обмен гонконгских долларов на рубли
         private void Button5_Click(object sender, EventArgs e)
@@ -125,9 +125,9 @@ namespace WindowsFormsApp4
                     fw.ShowDialog();
                     Close();
                 }
-                else { MessageBox.Show("Недостаточно средств (HKD)", "Успешно!"); }
+                else { MessageBox.Show("Недостаточно средств (HKD)", "Неудача!"); }
             }
-            catch { MessageBox.Show("Введите правильное колличество долларов", "Успешно!"); }
+            catch { MessageBox.Show("Введите правильное колличество долларов", "Неудача!"); }
         }
         //Подсчет количества средств в рублях, за  нное количево долларов
         private void Button4_Click(object sender, EventArgs e)
@@ -137,7 +137,7 @@ namespace WindowsFormsApp4
                 double res = Double.Parse(label6.Text) * Double.Parse(dollar2.Text);
                 label10.Text = res.ToString();
             }
-            catch { MessageBox.Show("Введите правильное колличество долларов", "Успешно!"); }
+            catch { MessageBox.Show("Введите правильное колличество долларов", "Неудача!"); }
         }
 
         private void Button3_Click(object sender, EventArgs e)

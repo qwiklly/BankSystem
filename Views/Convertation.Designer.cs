@@ -125,9 +125,9 @@
 			this.label6.Font = new System.Drawing.Font("Calibri", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.label6.Location = new System.Drawing.Point(19, 386);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(87, 35);
+			this.label6.Size = new System.Drawing.Size(78, 35);
 			this.label6.TabIndex = 17;
-			this.label6.Text = "label6";
+			this.label6.Text = "11.67";
 			// 
 			// label7
 			// 
@@ -233,7 +233,7 @@
 			// 
 			// Button5
 			// 
-			this.Button5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+			this.Button5.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.Button5.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.Button5.Location = new System.Drawing.Point(1458, 665);
 			this.Button5.Name = "Button5";
